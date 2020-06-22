@@ -3,9 +3,9 @@
 session_start();
 $emailUser = $_SESSION['userLoggedIn'];
 $organisationId=$_SESSION['organisationId'];
-echo $emailUser;
+/*echo $emailUser;
 echo "<br>";
-echo $organisationId;
+echo $organisationId;*/
 
 ?>
 <?php include("../includes/handlers/config.php"); ?>
@@ -13,6 +13,9 @@ echo $organisationId;
 <?php 
 
 $query=mysqli_query($con,"SELECT * FROM admin_details WHERE email='$emailUser' AND organisation='$organisationId'");
+if(mysqli_num_rows($query)==0){
+    header("Location:superadmin.php");
+}
 $query_name=mysqli_query($con,"SELECT organisation FROM organisations WHERE id='$organisationId'");
 $array=mysqli_fetch_array($query);
 $eid=$array['eid'];
@@ -161,10 +164,12 @@ $organisation_name=$array_name['organisation'];
             <div class="field_name"> <h4>ID</h4></div>
             <div class="field_value"> <h4><?php echo $array['eid']; ?></h4></div>
         </div> 
+        
         <div class="div_row">
             <div class="field_name"> <h4>Name</h4></div>
             <div class="field_value"> <h4><?php echo $array['name']; ?></h4></div>
         </div> 
+        
         <div class="div_row">
             <div class="field_name"> <h4>Gender</h4></div>
             <div class="field_value"> <h4><?php echo $array['gender']; ?></h4></div>
