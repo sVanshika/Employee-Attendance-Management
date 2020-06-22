@@ -3,9 +3,9 @@
 session_start();
 $emailUser = $_SESSION['userLoggedIn'];
 $organisationId=$_SESSION['organisationId'];
-echo $emailUser;
+/*echo $emailUser;
 echo "<br>";
-echo $organisationId;
+echo $organisationId;*/
 
 ?>
 <?php include("../includes/handlers/config.php"); ?>
