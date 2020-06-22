@@ -89,7 +89,10 @@ $today_absent=$array_today_absent['absent'];
     <link rel="stylesheet" href="dashboard.css">
 
     <!-- graphs  -->
+    <style>
 
+    
+    </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -186,6 +189,21 @@ $today_absent=$array_today_absent['absent'];
        
         
       }
+      .form_date{
+            display:flex;
+            justify-content:center;
+            margin-right:-9px;
+        }
+        form{
+           
+            width:30%;
+            padding:20px;
+            
+            background-color:#EEEEEE;"
+        }
+        .btn_action{
+            margin:0;
+        }
 </style> 
 <body>
 
@@ -330,8 +348,15 @@ $today_absent=$array_today_absent['absent'];
     </div>
     </div>
 
+    <div class="form_date">
+    <form action="viewInsights1.php" method="POST">
+        <input type="text" placeholder="Date" id="date" name="date" style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); margin-right:10px;">
+        <button class="btn btn-primary" name="date_btn">Datewise Insights</button>
+    </form>
+    </div>
 <div id="donutchart" style="width: 600px; height: 500px;float:left;margin-left:99px;"></div>
 <div id="piechart2" style="width: 600px; height: 500px;float:left;"></div>
+
 
 
 
